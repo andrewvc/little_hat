@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<% actions =  [
+  "Regenerated #{Conf.output_file} from #{Conf.site_template}",
+  "#{@generated_thumbs.length} thumbs generated",
+  "#{@photos.length} photos total",
+  "#{@errors.length} processing errors" 
+]
+%>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title><%= actions.join(" | ") %></title>
+    <style type="text/css">
+      body    {font-family:arial}
+      h1      {font-size:18px; 
+               background-color:#CCF;
+               padding:10px;}
+      h2      {font-size:14px;}
+      .error  {color:red;}
+      .pfilename {vertical-align:middle}
+      img.pthumb {
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Summary</h1>
+    <ul>
+      <% actions.each do |action| %>
+        <li><%= action %></li>
+      <% end %>
+    </ul>
+    
+    <h1>Details</h1>
+    <% unless @errors.empty? %>
+    <h2 class="error">There were errors during processing</h2>
+    <ol>
+      <% @errors.each do |e| %>
+        <li class="error"><%= e %></li>
+      <% end %>
+    </ol>
+    <% end %>
+    
+    <h2><%= @generated_thumbs.length %> files were generated</h2>
+    <% unless @generated_thumbs.empty? %>
+      <ol>
+        <% @generated_thumbs.each do |gt| %>
+          <li><%= gt.join(', ') %></li>
+        <% end %>
+      </ol>
+    <% end %>
+    
+    <h2><%= @photos.length %> photos available</h2>
+    <ol>
+      <% @photos.each do |photo| %>
+        <li style="clear:both;">
+          <img class="pthumb" alt="" src="<%= url_for_photo(photo,:index) %>" />
+          <span class="pfilename">
+              <%= photo.filename %>
+          </span>
+        </li>
+      <% end %>
+    </ol>
+    
+  </body>
+</html>

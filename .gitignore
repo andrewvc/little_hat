@@ -1,0 +1,12 @@
+public/misc/*
+public/images/*
+public/photos/*
+public/favicon/*
+orig_photos/*
+sinatra/*
+tmp/photos.yaml
+settings.rb
+views/index.erb
+sinatra.log
+order.yaml
+*.swp

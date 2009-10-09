@@ -1,0 +1,13 @@
+Little Hat - The Simple Gallery For Photographers
+
+1. Install the Sinatra gem.
+2. Copy views/index.erb.example to views/index.erb and customize to your liking.
+3. List the filenames of the images you want displayed in the orig_photos 
+   folder in order.yaml (use order.yaml.example as a template)
+4. Make sure all folders / files specified in settings exist. 
+   If you use the defaults create orig_photos, public/photos, and order.txt
+4. Copy settings.example.rb to settings.rb
+   Configure settings.rb to generate thumbnails in the size you want.
+5. Visit /admin to generate thumbnails. This may take a while if you have a lot
+   of images, if you have a ton your request may time out, in which case 
+   running it again will pick up where you left off.
