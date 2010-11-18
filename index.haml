@@ -64,14 +64,14 @@
         - row.each do |photo|
           .photo-frame
             .photo-container
-              %a{:style => 'float:left', :rel => 'gal', :href => url_for_photo(photo, :large), :onclick => "viewPhoto(this,'#{url_for_photo(photo, :large)}'); return false;", :id => "photo-#{photo.filename[0...-4]}", :target => '_blank'}
+              %a{:title => photo.title, :style => 'float:left', :rel => 'gal', :href => url_for_photo(photo, :large), :onclick => "viewPhoto(this,'#{url_for_photo(photo, :large)}'); return false;", :id => "photo-#{photo.filename[0...-4]}", :target => '_blank'}
                 %img{:src => url_for_photo(photo, :index), :alt => photo.title}
   
   #blog
     %h2 Programming
     - @blog_posts.each do |post|
       .blog-post
-        - ttext = post[:title].length > 55 ? "#{post[:title][0..55]}..." : post[:title]
+        - ttext = post[:title].length > 52 ? "#{post[:title][0..52]}..." : post[:title]
         %a.title{:href => post[:link], :target => '_blank'}= "#{ttext} &rArr;"
 
   // Used during gallery view only, so hidden till then

@@ -138,11 +138,11 @@ function viewPhoto(anchor,fullImgUrl) {
       photoMeta += '<span id="full-photo-title" style="display:none">' + a.title +  '</span>';
       if (prevPhoto) {
         photoMeta += '<a id="prev-photo" href="view/' + prevPhoto.cssId + '" ';
-        photoMeta += 'onclick="viewPhotoById(' + "'" + prevPhoto.cssId + "'); return false" + ';")>&laquo; Prev.</a>';
+        photoMeta += 'onclick="viewPhotoById(' + "'" + prevPhoto.cssId + "'); return false" + ';")>&larr; Prev.</a>';
       }
       if (nextPhoto) {
         photoMeta += '<a id="next-photo" href="view/' + nextPhoto.cssId + '" ';
-        photoMeta += 'onclick="viewPhotoById(' + "'" + nextPhoto.cssId + "'); return false" + ';")>Next &raquo;</a>';
+        photoMeta += 'onclick="viewPhotoById(' + "'" + nextPhoto.cssId + "'); return false" + ';")>Next &rarr;</a>';
       }
       photoMeta += '</div>';
 

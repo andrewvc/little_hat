@@ -4,22 +4,24 @@ body {
   font-family: "le-havre-rounded-1","le-havre-rounded-2", helvetica, arial, sans-serif;
   font-size:16px;
   font-weight: 300;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
 }
 
 p {
   margin-top: 15px;
   font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
-  
+  letter-spacing: 0.05em;
 }
 
 ul {
   font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
+  letter-spacing: 0.05em;
 }
 
 a {
   letter-spacing: 0.06em;
   font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
+  letter-spacing: 0.05em;
   color:black;
   font-size:15px;
   font-weight:700;
@@ -27,6 +29,14 @@ a {
 
 a:hover {
   text-decoration:none;
+}
+
+a#next-photo, a#prev-photo {
+  text-decoration:none;
+}
+
+a#next-photo:hover, a#prev-photo:hover {
+  text-decoration: underline;
 }
 
 img {
@@ -54,7 +64,7 @@ h2 {
 
 #photo-thumbs {
   position:absolute;
-  left:355px;
+  left:375px;
   top:70px;
 }
 .photo-view #photo-thumbs {
@@ -94,7 +104,7 @@ h2 {
   position:absolute; 
   top:410px; 
   left:20px;
-  width:280px;
+  width:260px;
 }
 
 #about-chronology {
@@ -164,7 +174,7 @@ ul#code li {
   position: absolute;
   width: 400px;
   top: 70px;
-  left: 650px;
+  left: 705px;
   font-weight: bold;
 }
 
