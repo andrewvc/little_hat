@@ -1,0 +1,170 @@
+body {
+  margin:0px;
+  padding:0px;
+  font-family:arial;
+  font-size:12px;
+}
+
+a {
+  color:black;
+  font-weight:bold;
+}
+
+a:hover {
+  text-decoration:none;
+}
+
+img {
+  border:none;
+}
+h2 {
+  margin:0px;
+  padding-bottom: 15px;
+}
+
+
+#main-graphic {
+  position:absolute;
+  top:0px;
+  left:0px;
+  padding: 0px;
+  margin:0px;
+}
+
+#photo-thumbs {
+  position:absolute;
+  left:355px;
+  top:70px;
+}
+.photo-view #photo-thumbs {
+  border-right: 1px solid silver;
+  margin-right:25px;
+}
+
+.photo-row {
+  clear:left;
+}
+
+.photo-frame {
+  float:left;
+}
+
+.photo-frame a {
+  width:45px;
+  height:30px;
+  margin-right:25px;
+  margin-bottom:40px;
+  background-image: url('../images/photo-frame.png');
+  background-repeat:no-repeat;
+  overflow:hidden;
+  /*Used to space it properly for when we change it in JS later*/
+  border: 2px solid white;    
+}
+.photo-frame a.selected {
+  border: 2px solid black;
+}
+
+.photo-container {
+  text-align:center;
+}
+
+#about {
+  color:#111; 
+  position:absolute; 
+  top:440px; 
+  left:20px;
+  font-size:10px; 
+  width:280px;
+}
+
+#about-chronology {
+  list-style:none; 
+  padding:0px; 
+  margin:0px; 
+  float:left;
+  padding: 12px 10px 8px 0px;
+}
+#about h2 {
+  font-size: 10px;
+  font-weight: bold;
+}
+#book-ad {
+  width:404px;
+  padding:0px 20px;
+  position: absolute;
+  top: 60px;
+  left:640px;
+}
+#book-ad img {
+  z-index:100;
+}
+#book-ad strong {
+  font-size: 16px;
+}
+
+#full-photo-cont { 
+  position:absolute;
+  top: 175px;
+  left:365px;
+}                
+
+#photo-meta {
+  margin-bottom:10px;
+}
+
+#full-photo-title {
+  float:right;
+  font-size: 10px;
+  font-weight:bold;
+  padding-left:120px;
+}
+
+#prev-photo {
+  margin-right:8px;
+}
+
+#return-home {
+  position:absolute;
+  top: 62px;
+  left:365px;
+  font-size:18px;
+  font-variant: small-caps;
+}
+#return-home a {
+  text-decoration: none;
+}
+#return-home a:hover {
+  text-decoration:underline;
+}
+
+ul#code {
+  padding-left: 20px;
+  list-style-type: square;
+}
+
+#blog {
+  color: #888;
+  position: absolute;
+  width: 400px;
+  top: 70px;
+  left: 650px;
+  font-weight: bold;
+}
+
+#blog a.title {
+  display: block;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px dotted #aaa;
+  text-decoration: none;
+  line-height: 16px;
+  font-size: 10px;
+  font-weight: normal;
+  padding-left: 5px;
+}
+
+#blog a.title:hover {
+  background-color: #444;
+  color: #fff;
+  font-weight: bold;
+}

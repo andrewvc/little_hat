@@ -1,0 +1,72 @@
+!!!
+
+%html
+  %head
+    %title Andrew Cholakian
+    
+    %script{:type => 'text/javascript', :src => 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/main.js'}
+    
+    :erb
+      <script type='text/javascript'>
+      setupPhotoGallery(new Array(
+      <% @photos.each_with_index do |photo,i| %>
+        new Photo('<%= photo.filename %>','photo-<%= photo.filename[0...-4] %>', '<%= photo.title.gsub(/'/,"\\'") %>')
+        <%= ',' if i + 1 < @photos.length %>
+      <% end %>  
+      ));
+      </script>
+    
+    %link{:rel => 'stylesheet', :href => 'stylesheets/main.css'}
+  %body
+    %h1#main-graphic
+      %a{:href => '/'}
+        %img{:src => 'images/main-graphic.png', :alt => 'Andrew Cholakian'}
+    #about
+      %h2 About Andrew:
+      %p I've been shooting for years, even though it's not what I do full time, it's one of my genuine passions, along with computing and mountain biking. I currently work as a programmer / systems administrator, and still shoot when time is permitting.
+      %h2 Photographic Notes
+      %p All photos are shot with either Canon digital cameras or vintage 35mm or 120mm film cameras.
+    
+      %h2 Code:
+      %p A few things I've written:
+      %ul#code
+        %li
+          %a{:href => 'http://github.com/andrewvc/dripdrop'} DripDrop
+          \: DripDrop is a concurrency framework built around ZeroMQ and EventMachine. DripDrop lets you build highly concurrent apps with a fraction of the code usually needed. By making concurrency easy, DripDrop encourages you to write for decoupled, and more concurrent applications.
+        %li
+          %a{:href => 'http://github.com/andrewvc/learn-ruby-zeromq'} Learn Ruby ZeroMQ
+          \: A tutorial series covering the Ruby ZeroMQ FFI bindings.
+        %li
+          %a{:href => 'http://github.com/andrewvc/little_hat'} Little Hat
+          \: The code that generates and uploads this site
+        %li
+          %a{:href => 'http://github.com/andrewvc/node-streamlogger'} Node Streamlogger
+          \: A logging library for Node JS with a focus on customization.
+      
+      %p
+        \-- 
+        %strong
+          %em
+            Andrew Cholakian
+  
+  #photo-thumbs
+    %h2 Photography
+    - @photos.every(4).each do |row|
+      .photo-row
+        - row.each do |photo|
+          .photo-frame
+            .photo-container
+              %a{:style => 'float:left', :rel => 'gal', :href => url_for_photo(photo, :large), :onclick => "viewPhoto(this,'#{url_for_photo(photo, :large)}'); return false;", :id => "photo-#{photo.filename[0...-4]}", :target => '_blank'}
+                %img{:src => url_for_photo(photo, :index), :alt => photo.title}
+  
+  #blog
+    %h2 Programming
+    - @blog_posts.each do |post|
+      .blog-post
+        %a.title{:href => post[:link]}= "#{post[:title]} &rArr;"
+
+  // Used during gallery view only, so hidden till then
+  #return-home{:style => 'display: none'}
+    %a{:href => '/', :onclick => "defaultMode(); return false"}
+      \- return home

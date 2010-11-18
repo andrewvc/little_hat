@@ -1,9 +1,10 @@
 class Photo
-  attr_reader :filename, :filepath
+  attr_reader :filename, :filepath, :title
 
-  def initialize(fn)
+  def initialize(fn,title)
     @filename = fn
     @filepath = File.join(Conf.photos_dir,@filename)
+    @title    = title
     raise "'#{@filepath}' does not exist!" unless File.exists?(@filepath)
     raise "'#{@filepath}' is a directory not a photo!" if File.directory?(@filepath)
   end
