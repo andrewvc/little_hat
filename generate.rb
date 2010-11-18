@@ -58,7 +58,7 @@ end
 def get_rss
   rss = SimpleRSS.parse open(Conf.blog_feed_url)
   rss.items.map do |item| 
-    {:title => item.title[0..65], :link => item.link, :description => item.description}
+    {:title => item.title, :link => item.link, :description => item.description}
   end
 end
 

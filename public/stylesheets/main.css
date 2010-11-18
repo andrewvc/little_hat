@@ -1,13 +1,28 @@
 body {
   margin:0px;
   padding:0px;
-  font-family:arial;
-  font-size:12px;
+  font-family: "le-havre-rounded-1","le-havre-rounded-2", helvetica, arial, sans-serif;
+  font-size:16px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+p {
+  margin-top: 15px;
+  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
+  
+}
+
+ul {
+  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
 }
 
 a {
+  letter-spacing: 0.06em;
+  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
   color:black;
-  font-weight:bold;
+  font-size:15px;
+  font-weight:700;
 }
 
 a:hover {
@@ -17,7 +32,12 @@ a:hover {
 img {
   border:none;
 }
+
+h1 {
+  font-size: 18px;
+}
 h2 {
+  font-size: 16px;
   margin:0px;
   padding-bottom: 15px;
 }
@@ -29,6 +49,7 @@ h2 {
   left:0px;
   padding: 0px;
   margin:0px;
+  text-align:right;
 }
 
 #photo-thumbs {
@@ -71,9 +92,8 @@ h2 {
 #about {
   color:#111; 
   position:absolute; 
-  top:440px; 
+  top:410px; 
   left:20px;
-  font-size:10px; 
   width:280px;
 }
 
@@ -85,7 +105,7 @@ h2 {
   padding: 12px 10px 8px 0px;
 }
 #about h2 {
-  font-size: 10px;
+  padding-top: 15px;
   font-weight: bold;
 }
 #book-ad {
@@ -94,12 +114,6 @@ h2 {
   position: absolute;
   top: 60px;
   left:640px;
-}
-#book-ad img {
-  z-index:100;
-}
-#book-ad strong {
-  font-size: 16px;
 }
 
 #full-photo-cont { 
@@ -114,7 +128,6 @@ h2 {
 
 #full-photo-title {
   float:right;
-  font-size: 10px;
   font-weight:bold;
   padding-left:120px;
 }
@@ -125,21 +138,25 @@ h2 {
 
 #return-home {
   position:absolute;
-  top: 62px;
+  top: 36px;
   left:365px;
-  font-size:18px;
-  font-variant: small-caps;
+  font-size: 18px;
 }
 #return-home a {
   text-decoration: none;
+  font-size: 18px;
 }
 #return-home a:hover {
   text-decoration:underline;
 }
 
 ul#code {
-  padding-left: 20px;
-  list-style-type: square;
+  padding-left: 17px;
+  list-style-type: circle;
+}
+
+ul#code li {
+  padding-top:10px;
 }
 
 #blog {
@@ -153,12 +170,11 @@ ul#code {
 
 #blog a.title {
   display: block;
-  padding-top: 4px;
+  padding-top: 8px;
   padding-bottom: 4px;
   border-bottom: 1px dotted #aaa;
   text-decoration: none;
   line-height: 16px;
-  font-size: 10px;
   font-weight: normal;
   padding-left: 5px;
 }
@@ -166,5 +182,4 @@ ul#code {
 #blog a.title:hover {
   background-color: #444;
   color: #fff;
-  font-weight: bold;
 }

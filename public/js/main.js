@@ -16,20 +16,6 @@ $(document).ready(function() {
   }
 });
 
-$(document).ready(function() {
-  $.getJSON('/blog_feed', function(posts, textStatus) {
-    $('#mini-blog-loading').remove();
-    var postList = $('#mini-blog ul');
-    $(posts).each(function(i,post) {
-      postList.append(
-        "<li class='blog-post'>" + 
-          "<a class='blog-title' href='" + post.link + "'>" + post.title + "</a>" +
-        "</li>"
-      );
-    });
-  });
-});
-
 // A simple representation of the photo
 function Photo(filename, cssId, title) {
   this.filename = filename;
@@ -74,12 +60,14 @@ function photoViewMode() {
     $('#photo-thumbs').animate(
       { left: '40px', top: '175px'},500);
     $('#blog').fadeOut();
+    $('#photo-thumbs h2').hide();
   }
 }
 
 //Switch the mode back to default. Reset the page from photoViewMode
 function defaultMode() {
   if($.mode == 'photoView') {
+    $('#photo-thumbs h2').show();
     $('#blog').fadeIn();
     $('body').removeClass('photo-view');
     $('#return-home').fadeOut(500);
