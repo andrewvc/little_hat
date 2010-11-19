@@ -35,13 +35,13 @@ a:hover {
 
 a#next-photo, a#prev-photo {
   font-size: 16px;
-  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
+  font-family: "le-havre-rounded-1","le-havre-rounded-2", helvetica, arial, sans-serif;
   text-decoration:none;
 }
 
 #photo-meta {
   font-size: 16px;
-  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
+  font-family: "le-havre-rounded-1","le-havre-rounded-2", helvetica, arial, sans-serif;
 }
 
 a#next-photo:hover, a#prev-photo:hover {
@@ -72,7 +72,7 @@ h2 {
 
 #photo-thumbs {
   position:absolute;
-  left:355px;
+  left:365px;
   top:70px;
 }
 .photo-view #photo-thumbs {

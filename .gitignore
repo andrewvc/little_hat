@@ -10,3 +10,4 @@ order.yaml
 *.swp
 *.swo
 s3_config.json
+public/index.html

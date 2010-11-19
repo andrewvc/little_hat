@@ -69,7 +69,7 @@ function defaultMode() {
         
     $('#full-photo-cont').fadeOut(500).remove();
     $('#photo-thumbs').animate(
-      { left: '355px', top: '70px'});
+      { left: '365px', top: '70px'});
     $('.photo-frame a').removeClass('selected').fadeTo(500,1);
     $('#book-ad').show();
     $('#book-images').fadeTo(200,0.2);
