@@ -9,22 +9,24 @@ body {
 
 p {
   margin-top: 15px;
-  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
+  font-family:  helvetica, arial, sans-serif;
   letter-spacing: 0.05em;
+  font-size: 12px;
 }
 
 ul {
-  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
+  font-family:  helvetica, arial, sans-serif;
   letter-spacing: 0.05em;
+  font-size: 12px;
 }
 
 a {
   letter-spacing: 0.06em;
-  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
+  font-family:  helvetica, arial, sans-serif;
   letter-spacing: 0.05em;
   color:black;
-  font-size:15px;
-  font-weight:700;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 a:hover {
@@ -32,7 +34,14 @@ a:hover {
 }
 
 a#next-photo, a#prev-photo {
+  font-size: 16px;
+  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
   text-decoration:none;
+}
+
+#photo-meta {
+  font-size: 16px;
+  font-family: "le-havre-1","le-havre-2", helvetica, arial, sans-serif;
 }
 
 a#next-photo:hover, a#prev-photo:hover {
@@ -51,7 +60,6 @@ h2 {
   margin:0px;
   padding-bottom: 15px;
 }
-
 
 #main-graphic {
   position:absolute;
@@ -91,6 +99,7 @@ h2 {
   /*Used to space it properly for when we change it in JS later*/
   border: 2px solid white;    
 }
+
 .photo-frame a.selected {
   border: 2px solid black;
 }
@@ -114,16 +123,10 @@ h2 {
   float:left;
   padding: 12px 10px 8px 0px;
 }
+
 #about h2 {
   padding-top: 15px;
   font-weight: bold;
-}
-#book-ad {
-  width:404px;
-  padding:0px 20px;
-  position: absolute;
-  top: 60px;
-  left:640px;
 }
 
 #full-photo-cont { 
@@ -148,14 +151,16 @@ h2 {
 
 #return-home {
   position:absolute;
-  top: 36px;
+  top: 35px;
   left:365px;
   font-size: 18px;
 }
 #return-home a {
+  font-family: "le-havre-rounded-1","le-havre-rounded-2", helvetica, arial, sans-serif;
   text-decoration: none;
   font-size: 18px;
 }
+
 #return-home a:hover {
   text-decoration:underline;
 }

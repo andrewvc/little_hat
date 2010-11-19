@@ -12,7 +12,7 @@ $(document).ready(function() {
     //Fade in the thumbnails
     $.imagesToFade = $("#photo-thumbs img");
     $.imagesToFade.hide();
-    $.fadeImagesInterval = setInterval("fadeImagesOnLoad()",500);
+    fadeImagesOnLoad($.imagesToFade);
   }
 });
 
@@ -32,16 +32,11 @@ function setupPhotoGallery(galleryPhotos) {
 function fadeImagesOnLoad() {
   //Fade in loaded images
   $.imagesToFade.each(function(i,img) {
-    if (img && img.complete) {
-      $(img).fadeIn(Math.random() * 2000 + 600);
-      $.imagesToFade.splice(i,1);
-    }
+    var img = $(img);
+    img.load(function() {
+      img.fadeIn(Math.random() * 2000 + 600);
+    });
   });
-      
-  //Cancel Interval when we're done
-  if ($.imagesToFade.length == 0) {
-    clearInterval($.fadeImagesInterval);
-  }
 }
 
 /*Switch the app mode to the photo view mode(we use $.mode to store state)

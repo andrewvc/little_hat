@@ -8,3 +8,5 @@ settings.rb
 views/index.erb
 order.yaml
 *.swp
+*.swo
+s3_config.json
