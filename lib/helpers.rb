@@ -1,5 +1,10 @@
 def url_for_photo(photo,size)
-  "#{Conf.photos_pub_url}/#{photo.pub_fn_for_size(size)}"
+  asset_url_for "#{Conf.photos_pub_url}/#{photo.pub_fn_for_size(size)}"
+end
+
+def asset_url_for(path)
+  cdn_srv_id = path.length % 3
+  "http://#{cdn_srv_id}.cdn.andrewvc.com/#{path}"
 end
 
 class Array

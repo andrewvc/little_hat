@@ -15,15 +15,14 @@
 
     :erb
       <script type='text/javascript'>
-      setupPhotoGallery(new Array(
-      <% @photos.each_with_index do |photo,i| %>
-        new Photo('<%= photo.filename %>','photo-<%= photo.filename[0...-4] %>', '<%= photo.title.gsub(/'/,"\\'") %>')
-        <%= ',' if i + 1 < @photos.length %>
-      <% end %>  
-      ));
+        var photosJSON = <%= @photos.map {|p| {:filename => p.filename, :title =>  p.title} }.to_json %>;
+        
+        var photos = $.map(photosJSON, function(props,i) {
+          var cssId = 'photo-' + props.filename.replace(/\s+/g,'-');
+          return new Photo(props.filename, cssId, props.title.replace(/'/g,"\\'"));
+        });
+        setupPhotoGallery(photos);
       </script>
-    
-
      
   %body
     %h1#main-graphic

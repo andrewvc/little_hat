@@ -9,6 +9,7 @@ require 'net/http'
 require 'simple-rss'
 require 'open-uri'
 require 'term/ansicolor'
+require 'json'
 
 #Custom libs
 require 'lib/conf'

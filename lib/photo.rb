@@ -8,7 +8,7 @@ class Photo
     raise "'#{@filepath}' does not exist!" unless File.exists?(@filepath)
     raise "'#{@filepath}' is a directory not a photo!" if File.directory?(@filepath)
   end
-  
+
   #Returns an array of which sizes are published
   def published_sizes
     Conf.sizes.keys.find_all {|sn| has_size?(sn)}
