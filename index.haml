@@ -4,6 +4,12 @@
   %head
     %title Andrew Cholakian
     
+    %link{:rel => 'stylesheet', :href => 'stylesheets/main.css'}
+
+    %script{:type => 'text/javascript', :src =>"http://use.typekit.com/bdt6jhf.js"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+    
     %script{:type => 'text/javascript', :src => 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'}
     %script{:type => 'text/javascript', :src => 'js/main.js'}
 
@@ -17,12 +23,8 @@
       ));
       </script>
     
-    %link{:rel => 'stylesheet', :href => 'stylesheets/main.css'}
 
-    %script{:type => 'text/javascript', :src =>"http://use.typekit.com/bdt6jhf.js"}
-    :javascript
-      try{Typekit.load();}catch(e){}
- 
+     
   %body
     %h1#main-graphic
       %a{:href => '/'}
@@ -64,7 +66,7 @@
         - row.each do |photo|
           .photo-frame
             .photo-container
-              %a{:title => photo.title, :style => 'float:left', :rel => 'gal', :href => url_for_photo(photo, :large), :onclick => "viewPhoto(this,'#{url_for_photo(photo, :large)}'); return false;", :id => "photo-#{photo.filename[0...-4]}", :target => '_blank'}
+              %a{:title => photo.title, :rel => 'gal', :href => url_for_photo(photo, :large), :onclick => "viewPhoto(this,'#{url_for_photo(photo, :large)}'); return false;", :id => "photo-#{photo.filename[0...-4]}", :target => '_blank'}
                 %img{:src => url_for_photo(photo, :index), :alt => photo.title}
   
   #blog

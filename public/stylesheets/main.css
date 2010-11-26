@@ -88,6 +88,10 @@ h2 {
   float:left;
 }
 
+.photo-container a {
+  float:left;
+}
+
 .photo-frame a {
   width:45px;
   height:30px;
