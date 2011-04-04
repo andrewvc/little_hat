@@ -15,13 +15,10 @@
 
     :erb
       <script type='text/javascript'>
-        var photosJSON = <%= @photos.map {|p| {:filename => p.filename, 
-                                               :cssId    => "photo-#{p.filename.chomp(File.extname(p.filename))}",
-                                               :title    => p.title} }.to_json %>;
+        var photos = <%= @photos.map {|p| {:filename => p.filename, 
+                                           :cssId    => "photo-#{p.filename.chomp(File.extname(p.filename))}",
+                                           :title    => p.title} }.to_json %>;
         
-        var photos = $.map(photosJSON, function(props,i) {
-          return new Photo(props.filename, props.cssId, props.title.replace(/'/g,"\\'"));
-        });
         setupPhotoGallery(photos);
       </script>
      

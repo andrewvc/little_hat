@@ -16,13 +16,6 @@ $(document).ready(function() {
   }
 });
 
-// A simple representation of the photo
-function Photo(filename, cssId, title) {
-  this.filename = filename;
-  this.cssId   = cssId;
-  this.title    = title;
-}
-
 //Store a full list of images on this page for use elsewhere
 function setupPhotoGallery(galleryPhotos) {
   $.galleryPhotos = galleryPhotos;
@@ -39,9 +32,6 @@ function fadeImagesOnLoad() {
   });
 }
 
-/*Switch the app mode to the photo view mode(we use $.mode to store state)
-  TODO: Make a new method of not hardcoding new positions so we can undo stuff
-  for easily. */
 function photoViewMode() {
   if (!($.mode == 'photoView')) {
     $('body').addClass('photo-view');
@@ -59,7 +49,6 @@ function photoViewMode() {
   }
 }
 
-//Switch the mode back to default. Reset the page from photoViewMode
 function defaultMode() {
   if($.mode == 'photoView') {
     $('#photo-thumbs h2').show();
