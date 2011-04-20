@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <title>Heartbeat</title>
+    <style type="text/css">
+      body {
+        background-color: #000;
+        color: #999;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      #scene {
+        background-color: #000;
+      }
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      function Heartbeat(context,width,height) {
+        var h = this; 
+        
+        h.context  = context;
+        h.width    = width;
+        h.height   = height;
+        h.baseline = Math.round(h.height / 2);
+
+        h.context.moveTo(h.x, h.y);
+        h.context.strokeStyle = "#668CFF";
+
+        var grad = context.createLinearGradient(0, 0, 0, 225);
+        grad.addColorStop(0, "#000");
+        grad.addColorStop(0.09, "#2F3545");
+        grad.addColorStop(0.18, "#3C4B6E");
+        grad.addColorStop(0.19, "#6C4B6E");
+        grad.addColorStop(0.2, "#2F3545");
+        grad.addColorStop(0.3, "#000");
+        h.context.fillStyle = grad; 
+
+        h.context.fillRect(0,0,h.width,h.height);
+         
+        h.x = 0;
+        h.y = h.baseline;
+        h.pumpOffset = Math.round(h.baseline * 0.75);
+
+        // Move Horizontally at a constant rate
+        // clearing the area in front of the beat
+        setInterval(function() {
+          if (h.x < width) {
+            h.x += 1;
+            // Draw line
+            h.context.lineTo(h.x, h.y);
+            // Clear space in front
+            h.context.fillRect(h.x,0,30,h.height);
+            // Embellish the 'point'
+            h.context.fillStyle = "rgba(255,255,255,0.8)"; 
+            h.context.fillRect(h.x + 1,h.y-1, 2,2);
+            h.context.fillStyle = grad; 
+          } else {
+            h.x = 0;
+            h.context.beginPath();
+            h.context.moveTo(h.x, h.y);
+          }
+          
+          h.context.stroke();
+        }, 12);
+        
+      setInterval(function() {
+        h.pump();
+      }, 500);
+        
+        h.pump = function() {
+          h.y = h.baseline + h.pumpOffset;
+          setTimeout(function() {
+            h.y = h.baseline - h.pumpOffset;
+            setTimeout(function() {
+              h.y = h.baseline;
+            }, 25)
+          }, 25);
+        }
+
+      }
+       
+      function main() {
+        var canvas  = $('#scene')[0];
+        var context = canvas.getContext('2d');
+        var beat    = new Heartbeat(context, canvas.width, canvas.height);
+      }
+      
+      $(function() {
+        main();
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Heartbeats</h1>
+    <canvas id="scene" width="500" height="60"></canvas>
+    <br />
+    (requires Chrome)
+    <br />
+    <script src="https://gist.github.com/879099.js?file=heartbeats.js"></script>
+  </body>
+</html>

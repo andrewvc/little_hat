@@ -15,11 +15,10 @@
 
     :erb
       <script type='text/javascript'>
-        var photos = <%= @photos.map {|p| {:filename => p.filename, 
-                                           :cssId    => "photo-#{p.filename.chomp(File.extname(p.filename))}",
-                                           :title    => p.title} }.to_json %>;
-        
-        setupPhotoGallery(photos);
+        var galleryPhotos = <%= @photos.map {|p| {:filename => p.filename, 
+                                                  :cssId    => "photo-#{p.filename.chomp(File.extname(p.filename))}",
+                                                  :title    => p.title,
+                                                  :fullUrl => url_for_photo(p,:large)} }.to_json %>;
       </script>
      
   %body
@@ -63,9 +62,15 @@
         - row.each do |photo|
           .photo-frame
             .photo-container
-              %a{:title => photo.title, :rel => 'gal', :href => url_for_photo(photo, :large), :onclick => "viewPhoto(this,'#{url_for_photo(photo, :large)}'); return false;", :id => "photo-#{photo.filename[0...-4]}", :target => '_blank'}
+              %a{:title => photo.title, :rel => 'gal', :href => url_for_photo(photo, :large), :id => "photo-#{photo.filename[0...-4]}", :target => '_blank'}
                 %img{:src => url_for_photo(photo, :index), :alt => photo.title}
-  
+
+  #full-photo-cont{:style => 'display: none'}
+    #photo-meta
+      %span#full-photo-title
+      %a#prev-photo{:href => '#'} &laquo; Prev.
+      %a#next-photo{:href => '#'} Next &raquo; 
+
   #blog
     %h2 Programming
     - @blog_posts.each do |post|
@@ -75,5 +80,5 @@
 
   // Used during gallery view only, so hidden till then
   #return-home{:style => 'display: none'}
-    %a{:href => '/', :onclick => "defaultMode(); return false"}
+    %a{:href => '/', :id => 'go-home'}
       \&larr; Return Home

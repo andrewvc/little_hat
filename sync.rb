@@ -7,7 +7,7 @@ require './acf_invalidate.rb'
 
 puts `ruby -I . generate.rb`
 puts "Syncing with S3"
-cmd = "s3cmd --acl-public --add-header 'Cache-Control: max-age=300' --force --progress sync public/ s3://andrewvc.com/"
+cmd = "s3cmd --acl-public --add-header 'Cache-Control: max-age=800' --force --progress sync public/ s3://andrewvc.com/"
 puts cmd
 puts `#{cmd}`
 

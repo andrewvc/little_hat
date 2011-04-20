@@ -40,6 +40,8 @@ a#next-photo, a#prev-photo {
 }
 
 #photo-meta {
+  padding-top: 2px;
+  line-height: 18px;
   font-size: 16px;
   font-family: "le-havre-rounded-1","le-havre-rounded-2", helvetica, arial, sans-serif;
 }
