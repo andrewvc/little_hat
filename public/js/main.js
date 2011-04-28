@@ -83,9 +83,7 @@ $(document).ready(function() {
     }
   }
 
-  /* When you click on a thumb switch to photoViewMode if we aren't
-   already there then show the image, creating the dom elements needed to 
-   display it if necessary */    
+  // Display an individual photo
   function viewPhoto(id) {
     photoViewMode();
     var anchor = $('#' + id)[0];
@@ -119,42 +117,40 @@ $(document).ready(function() {
           }
         });
 
-        // Empty out the display area, and show the image and metadata
-        if (prevPhoto) {
-          prevPhotoA.unbind('click');
-          prevPhotoA.click(function(e) {
-            e.preventDefault();
-            viewPhoto(prevPhoto.cssId);
-          });
-          prevPhotoA.show();
-        } else {
-          prevPhotoA.hide()
-        }
-        if (nextPhoto) {
-          nextPhotoA.unbind('click');
-          nextPhotoA.click(function(e) {
-            e.preventDefault();
-            viewPhoto(nextPhoto.cssId);
-          });
-          nextPhotoA.show();
-        } else {
-          nextPhotoA.hide()
-        }
-        
+        // Previous / next buttons
+        $.each([[prevPhoto,prevPhotoA],[nextPhoto,nextPhotoA]],
+               function(i,pInfo) {
+          var photo = pInfo[0];
+          var photoA = pInfo[1];
+
+          if (photo) {
+            photoA.unbind('click');
+            photoA.click(function(e) {
+              e.preventDefault();
+              viewPhoto(photo.cssId);
+            });
+            photoA.show();
+          } else {
+            photoA.hide()
+          }
+        });
+      
+        // Fade in title
         fullPhotoTitle.text(anchor.title);
         fullPhotoCont.find('img').remove();
         fullPhotoTitle.hide();
         fullPhotoTitle.fadeIn(1200);
 
+        // Fade in the image
         var img = $('<img src="' + photo.fullUrl + '">');
         img.hide();
         img.hide();
         img.fadeIn(700);
-        
+
+        // Show the metadata
         fullPhotoCont.append(img);
         fullPhotoCont.show();
 
-        // Make this URL bookmarkable
         window.location.hash  = "view/" + a.id;
       }
     });
